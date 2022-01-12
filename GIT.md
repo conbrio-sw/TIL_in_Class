@@ -45,14 +45,57 @@ $ git init #초기화 해당디렉토리에...
   - `Untracked` : git이 관리하지 않는 파일 (한번도 staging area에 올라 간 적이 없음) (깃이 수정사항 하나도 모름)
   - `tracked` : git이 관리하는 파일
     - `Unmodified` : 최신상태
-    - `modified` : 수정되었지만 staging area에 반영되기 전
+    - `modified` : 수정되었지만 commit을 남기기 전
     - `staged` : staging area에 반영된 상태
 
+## git add
+
+```bash
+# 특정파일
+$ git add file_name.txt
+# 특정폴더
+$ git add folder/
+# 현재 디렉토리에 속한 모든 파일/폴더
+$ git add .
+```
+
+## git commit
+
+- staging area에 올라온 파일의 변경 사항을 하나의 버전으로 저장하는 명령어
+- `커밋 메시지` 는 현재 변경사항을 기록하는 용도로 사용합니다.
+
+```bash
+$ git commit -m "커밋 메세지" 
+# (root-commit) : 최초 커밋시 메시지 발생
+# d3aff7fs : 요상한 문자들은 이 버전의 고유값
+# 그 아래 문장들은 커밋 내용들
+```
 
 
 
+## git log
 
+- 커밋의 내역을 조회할 수 있는 명령어
 
+- 옵션
+
+  - `--oneline` : 한줄로 축약해서 보여줍니다.
+  - `--graph` : 브랜치와 머지 내력을 그래프로 보여주는 명령어
+  - `--all` : 모든 브랜치의 내역
+  - `--reverse` : 커밋 내역의 순서를 반대로 보여주는 명령어
+
+  ```bash
+  $ git log
+  $ git log --oneline # 커밋 메시지만 간단하게 출력
+  ```
+
+  
+
+### 주의사항
+
+수정사항 발생 시 그 파일은 상태가 modified되어 있다.
+
+이것은 이미 add되어 있고 트래킹하고 있는 상태기 때문에 커밋만 하면 된다.
 
 
 
