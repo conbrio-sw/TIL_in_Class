@@ -62,6 +62,12 @@ $ git log --oneline --graph
 
 
 
+### 주의사항
+
+```bash
+$git add . # .은 현재 폴더
+```
+
 
 
 
