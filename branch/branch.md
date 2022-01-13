@@ -65,7 +65,7 @@ $ git log --oneline --graph
 ### 주의사항
 
 ```bash
-$git add . # .은 현재 폴더
+$git add . # .은 현재 폴더 -> 상위폴더 커밋하려면 상위폴더에 가서 하면된다.
 ```
 
 
