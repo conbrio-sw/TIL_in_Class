@@ -45,6 +45,21 @@ $ git switch -c {다른 브랜치 이름}
 
 
 
+### git merge
+
+```bash
+$ git merge dev # 현재 브랜치에 dev브랜치를 병합
+#Fast-forward : dev에 있는 변동사항을 가져옴
+#머지가 끝나면 더이상 작업을 안할 브랜치라면 삭제
+
+#마스터에 변동사항이 있고 그 이후에 머지할 경우
+#:wq 명령어..!
+$ git log --oneline --graph
+
+# 같은 파일 수정하고 마지막에 머지하면
+# CONFLICT 발생
+```
+
 
 
 
