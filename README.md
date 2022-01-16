@@ -10,4 +10,4 @@ Today I Learned in class
 - [GITHUB](start_camp/GITHUB.md)
 - [Branch](start_camp/branch.md)
 ## 22.01.14
-- [파이썬의 기초](start_camp/파이썬의 기초.md)
+- [파이썬의 기초](start_camp/Basic_of_python.md)
