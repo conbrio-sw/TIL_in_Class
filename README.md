@@ -11,3 +11,10 @@ Today I Learned in class
 - [Branch](start_camp/branch.md)
 ## 22.01.14
 - [파이썬의 기초](start_camp/Basic_of_python.md)
+
+## 22.01.17
+
+- [데이터와 제어문](lec_python/0117_Data&ControlStatement.md)
+
+
+
