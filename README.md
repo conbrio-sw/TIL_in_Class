@@ -16,5 +16,8 @@ Today I Learned in class
 
 - [데이터와 제어문](lec_python/0117_Data&ControlStatement.md)
 
+## 22.01.18
 
+- [0117숙제풀이](lec_python/0117_ProblemSolution.md)
+- [0118숙제풀이](lec_python/0118_ProblemSolution)
 
