@@ -13,14 +13,14 @@ from tkinter import N
 # pi = 3.1455111111111111111111111
 # print(f'원주율은 {pi:0.3f}')
 # b = (1,2)
-n = 5
-m = 9
-#답
-#답
-print('''
-"파일은 c:\\Windows\\Users\\내문서\\Python에 저장이 되었습니다."
-나는 생각했다. \'cd를 써서 git bash로 들어가 봐야지.\'
-''')
+# n = 5
+# m = 9
+# #답
+# #답
+# print('''
+# "파일은 c:\\Windows\\Users\\내문서\\Python에 저장이 되었습니다."
+# 나는 생각했다. \'cd를 써서 git bash로 들어가 봐야지.\'
+# ''')
 # print(dictA[b])
 # print(dictA)
 # str1 = str(dictA)
@@ -87,10 +87,79 @@ print('''
 #     sum += n
 #     n = n + 1
 
-input_num = int(input())	#숫자입력한 것을 int형변환
-n = 1
-sum = 0
-while n <= input_num:
-    sum += n				#1부터 입력한 자연수까지 더하기
-    n = n + 1				#종료조건 설정
-print(sum)
+# input_num = int(input())	#숫자입력한 것을 int형변환
+# n = 1
+# sum = 0
+# while n <= input_num:
+#     sum += n				#1부터 입력한 자연수까지 더하기
+#     n = n + 1				#종료조건 설정
+# print(sum)
+# input_num = int(input())
+# for i in range(input_num, -1, -1):
+#     print(i)
+# input_num = int(input())
+# sum = 0
+# for i in range(1, input_num + 1):
+#     sum += i
+# print(sum)
+# list_a = list(range(1, 51))
+# list_b = list_a[::2]
+# print(list_b)
+
+# Dict_a = {'홍길동' : 20, '이순신' : 21, '강감찬' : 27}
+# print(Dict_a)
+# print(type(Dict_a))
+# n = 5
+# m = 9
+# for i in range(m):
+#     print('*'*n)
+
+# temp = 39.5
+# str1 = '입실 불가' if temp >= 37.5 else '입실 가능'
+# print(str1)    
+# scores = [80, 89, 99, 83]
+# sum = 0
+# for i in scores:
+#     sum += i
+# avg = sum / len(scores)
+# print(avg)
+
+# num = int(input())
+
+# for i in range(1, num + 1):
+#     if(num % i == 0):
+#         print(f'{i} ', end = "")
+
+numbers = [
+    85, 72, 38, 80, 69, 65, 68, 96, 22, 49, 67,
+    51, 61, 63, 87, 66, 24, 80, 83, 71, 60, 64,
+    52, 90, 60, 49, 31, 23, 99, 94, 11, 25, 24
+]
+numbers_sort = sorted(numbers)
+print(numbers_sort)
+print(numbers_sort[int(len(numbers_sort)/2)])
+
+
+# number = int(input())
+
+# for i in range(1, number + 1):
+#     for j in range(1, number + 1):
+#         if i >= j:
+#             print(j, end=" ")
+#     print("")
+
+# word = input()
+# print(len(word))
+# print(word[5:1:-1])
+temp = 36.5
+print('입실 불가') if temp >= 37.5 else print('입실 가능')
+
+number= int(input())
+for i in range (1, number+1):
+    for j in range(1, i+1):
+        print(j, end = " ")
+    print()
+
+inputs = input().split()
+print(inputs)
+print(type(inputs))
