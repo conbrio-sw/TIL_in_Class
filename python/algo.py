@@ -92,18 +92,63 @@
 #     ptg = 100 * count / len(A)
 #     print(f'{ptg:.3f}%')
 
-listA = []
-for i in range(1, 10000):
-    num = i
-    temp = i
-    while True:
-        num += (temp % 10)
-        if temp < 10:
-            break
-        temp = temp // 10
-    listA.append(num)
-#print (listA)
-for i in range(1, 10000):
-    if i in listA:
-        continue
-    print(i)
+# listA = []
+# for i in range(1, 10000):
+#     num = i
+#     temp = i
+#     while True:
+#         num += (temp % 10)
+#         if temp < 10:
+#             break
+#         temp = temp // 10
+#     listA.append(num)
+# #print (listA)
+# for i in range(1, 10000):
+#     if i in listA:
+#         continue
+#     print(i)
+
+# N = int(input())
+# temp_list = []
+# count = 0
+# for i in range(1, N+1):
+#     temp = i
+#     temp_list = []
+#     while True:
+#         temp_list.append(temp%10)
+#         if temp < 10:
+#             break
+#         temp = temp // 10
+#     for j in range(0, len(temp_list)):
+#         if len(temp_list) <= 2:
+#             count += 1
+#             break
+#         d = temp_list[0] - temp_list[1]
+#         if temp_list[j] - temp_list[j+1] == d:
+#             if j == len(temp_list) -2:
+#                 print(i)
+#                 print(temp_list)
+#                 count += 1
+#                 break
+#         else:
+#             break
+# print("-----------------------")
+# print(count)
+
+# import sys
+# N = int(input())
+# arr = list(map(int, sys.stdin.readline().split()))
+# print(sum(arr))
+
+# print(ord('a'), ord('z'))
+S = input()
+arr = []
+for i in range(26):
+    arr.append(-1)
+#97~122
+for i in range(len(S)-1, -1, -1):
+    for j in range(97, 123):
+        if j == ord(S[i]):
+            arr[j-97] = i
+for i in arr:
+    print(i, end=" ")

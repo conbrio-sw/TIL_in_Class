@@ -21,3 +21,8 @@ Today I Learned in class
 - [0117숙제풀이](lec_python/0117_ProblemSolution.md)
 - [0118숙제풀이](lec_python/0118_ProblemSolution)
 
+## 22.01.19
+
+- [함수](lec_python/0119_Function.md)
+
+  
