@@ -1,16 +1,8 @@
-# 변수라는 개념
-dust = 60
-greeting = 'Hello, World!'
-
-
-print("=============while---------------")
-n = 0 
-while n < 4:
-    print(greeting)
-    n += 1
-
-
-print("=============for---------------")
-
-for i in range(0, 4):
-    print(greeting)
+def fx_a():
+    print("나는 fx_a함수입니다. 숫자 100을 반환해요")
+    return 100
+def sum(a, b):
+    print("숫자 2개를 더해줘요")
+    return a + b
+print(fx_a())
+print(sum(100, fx_a()))
