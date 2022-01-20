@@ -25,4 +25,11 @@ Today I Learned in class
 
 - [함수](lec_python/0119_Function.md)
 
-  
+
+## 22.01.20
+
+- [0119숙제풀이](lec_python/0119_ProblemSolution)
+- [0120숙제풀이](lec_python/0120_ProblemSolution)
+
+
+
