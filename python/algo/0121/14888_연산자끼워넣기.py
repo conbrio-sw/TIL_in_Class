@@ -39,7 +39,7 @@ res = [0] * (N-1)
 arr = O
 
 
-print(arr)
+#print(arr)
 op_p(arr, 0, N-1, res, A)
 print(max_res)
 print(min_res)
