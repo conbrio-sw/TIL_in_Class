@@ -31,5 +31,9 @@ Today I Learned in class
 - [0119숙제풀이](lec_python/0119_ProblemSolution)
 - [0120숙제풀이](lec_python/0120_ProblemSolution)
 
+## 22.01.21
 
+- [0121깃&프로젝트설명](lec_python/0121_project1.md)
+
+- [0121pjt01README](lec_python/0121_project1_readme.md)
 
