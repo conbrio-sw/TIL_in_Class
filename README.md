@@ -41,5 +41,6 @@ Today I Learned in class
 
 - [1월 월말평가 대비](lec_python/0122_PrepareMonthTest01.md)
 
+## 22.01.23
 
-
+- 1월 월말평가 대비 추가 공부...
