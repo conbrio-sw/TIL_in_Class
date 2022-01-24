@@ -44,3 +44,7 @@ Today I Learned in class
 ## 22.01.23
 
 - 1월 월말평가 대비 추가 공부...
+
+## 22.01.24
+
+- [데이터 구조 & 예외처리](lec_python/0124_DataStructure&Error)
