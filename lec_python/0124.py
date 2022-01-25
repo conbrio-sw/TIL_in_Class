@@ -71,5 +71,20 @@ def only_square_area(widths, heights):
     return rst
 
 
-a = only_square_area([32, 55, 63], [13, 32, 40, 55])
-print(a)
+# a = only_square_area([32, 55, 63], [13, 32, 40, 55])
+# print(a)
+
+# a = {'1' : 'a', '2' : 'b'}
+# print(a.get('1'))
+
+# str1 = 'apple'
+# print(str1)
+
+# str2 = ' a a a a a a a a '
+# print(str2.replace(' ', ''))
+# str3 = 'abc'
+# print(list(str3))
+
+dict1 = {1 : 'a', 'f' : 'abc'}
+dict1.update([1, 'aa'])
+print(dict1)
