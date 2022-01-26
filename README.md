@@ -55,3 +55,9 @@ Today I Learned in class
 
 - [0125숙제풀이](lec_python/0125_ProblemSolution.md)
 
+## 22.01.26
+
+- [객체 지향 프로그램](lec_python/0126_OOP.md)
+
+
+
