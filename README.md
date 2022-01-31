@@ -64,5 +64,9 @@ Today I Learned in class
 - [0126숙제풀이](lec_python/0126_ProblemSolution.md)
 - [0127숙제풀이](lec_python/0127_ProblemSolution.md)
 
+## 22.01.28
+
+- [0128프로젝트설명](lec_python/0128_project2.md)
+
 
 
