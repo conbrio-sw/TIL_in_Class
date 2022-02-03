@@ -68,5 +68,7 @@ Today I Learned in class
 
 - [0128프로젝트설명](lec_python/0128_project2.md)
 
+## 22.02.03
 
+- [0203HTML&CSS](web/0203_HTML&CSS.md)
 
