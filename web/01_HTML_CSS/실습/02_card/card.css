@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 200px auto;
+}
+
+/* 텍스트 스타일 */
+/* h4 - 20px, bold, arial */
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* p - arial */
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* 카드너비 700px 테두리 굵기 2px, 점선, 검정 */
+.card {
+  width: 700px;
+  border: 2px dashed black;
+  /* 박스 위치를 중앙으로 */
+  margin: 0 auto;
+}
+
+/* 카드 네비게이션, 글씨 중앙 정렬 */
+.card-nav {
+  text-align: center;
+  background-color: green;
+}
+/* 카드 헤더*/
+/* padding: 18px */
+.card-header {
+  padding: 18px;
+  /* 이미지파일이 인라인요소기 떄문에 아래 두 코드 중 하나를 써도 디스플레이를 박스로 안 바꿔도 짧은 빈칸이 없어진다. */
+  /* line-height: 0; */
+  /* font-size: 0; */
+}
+/* 이미지 높이가 330px, padding 18px */
+.card-img {
+  height: 330px;
+  width: 100%;
+  object-fit: cover;
+  /* 짧은 빈칸 없애기... */
+  display: block;
+}
+/* description  높이가 70px 텍스트 가운데 정렬*/
+.card-img-description{
+  height: 70px;
+  background-color: green;
+  text-align: center;
+  /* 수직 가운데 정렬 */
+  line-height: 35px;
+}
+
+/* body */
+.card-body {
+  padding: 18px;
+}
+.card-body-title{
+  position: relative;
+}
+/* display: inline으로 한줄로 배치 */
+.card-body-title > h4 {
+  display: inline;
+}
+.card-body-title > p {
+  display: inline;
+  /* 아래로 오른쪽으로 옮기는데 부모요소의 포지션을 relative로 설정필요 */
+  position: absolute;
+  right: 0
+}
+.card-body-content {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: bisque;
+}
+.card-footer {
+  background-color: green;
+  /* height: 30px;
+  line-height: 30px; */
+
+  /* 뒤에 공간은 패딩으로 해결 */
+  padding: 10px;
+  text-align: end;
+  color: white;
+}
