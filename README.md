@@ -82,5 +82,7 @@ Today I Learned in class
 
 - [0207Stack&Queue](java/algo/0207Stack&Queue.md)
 
+- [0208LinkedList](java/algo/0208LinkedList.md)
 
+  
 
