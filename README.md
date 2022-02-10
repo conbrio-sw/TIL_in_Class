@@ -90,3 +90,8 @@ Today I Learned in class
 
 - [0209Webex](java/algo/0209Webex.md)
 
+## 22.02.10
+
+- [0210Tree](java/algo/0210Tree.md)
+
+  
