@@ -99,3 +99,9 @@ Today I Learned in class
 
 - [0211Webex](java/algo/0211Webex.md)
 
+## 22.02.14
+
+- [0214완전탐색](java/algo/0214완전탐색.md)
+
+
+
