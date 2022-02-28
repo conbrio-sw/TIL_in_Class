@@ -125,4 +125,7 @@ Today I Learned in class
 ## 22.02.24
 
 - [0224그래프&문자열](java/algo/0224그래프&문자열.md)
-- 
+
+## 22.02.28
+
+- [0228IM](java/algo/0228IM.md)
