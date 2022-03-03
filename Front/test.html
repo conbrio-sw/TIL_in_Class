@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        body {
-  background-image: url("di.jpg");
-}
+      * {
+        box-sizing: border-box;
+      }
+      .column {
+        float: left;
+        width: 25%;
+        padding: 20px;
+        border: 1px solid lightgray;
+      }
+      @media screen and (max-width: 992px) {
+        .column {
+          width: 50%;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+      }
     </style>
-</head>
-
-<body>
-    <h1>안녕하세요~~~!!</h1>
-    <h2>This is a Heading</h2>
-    <p title="I'm a tolltip" style="color:red;"> This is a paragraph.</p>
-    <!--인라인 스타일-->
-    <a href="./sub/test2.html" target="_blank">This is a link</a>
-    <br>
-    <img src="di.jpg" alt="W3Schools.com">
-    <p>This is a paragraph.</p>
-    <p>This is another paragraph.</p>
-    This is a paragraph. <br>
-    This is another paragraph.
-    <p>
-        This paragraph
-        contains a lot of lines
-        in the source code,
-        but the browser
-        ignores it.
-    </p>
-    <hr>
-    <p>
-        <i>This paragraph</i>
-        contains a lot of spaces
-        in the source code,
-        but the browser
-        ignores it.
-    </p>
-</body>
-
+  </head>
+  <body>
+    <h2>Responsive Page</h2>
+    <div class="row">
+      <div class="column">Col 1</div>
+      <div class="column">Col 2</div>
+      <div class="column">Col 3</div>
+      <div class="column">Col 4</div>
+    </div>
+  </body>
 </html>
