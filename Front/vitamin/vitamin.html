@@ -1,106 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>내돈내산</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        .title {
-            font-size: 50px;
-            text-align: center;
-
-            font-weight: bold;
-        }
-
-        .titleDiscription {
-            border-bottom: 1px solid black;
-            text-align: right;
-            font-size: 20px;
-            padding-right: 10px;
-        }
-
-        .T {
-
-            background-color: wheat;
-        }
-
-        .Entire {
-            width: 1200px;
-            margin: 200px auto;
-            border: 1px solid black;
-        }
-
-        .battery-img {
-            width: 350px;
-            height: 300px;
-        }
-
-        .arm-img {
-            width: 350px;
-            height: 300px;
-        }
-
-        .tablet-img {
-            width: 350px;
-            height: 300px;
-        }
-
-        .photo {
-
-            text-align: center;
-        }
-
-        .body3 {
-
-            padding: 18px;
-
-        }
-
-        .content3 {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: bisque;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .entire {
+        margin: auto;
+        width: 1200px;
+      }
+      header {
+        height: 100px;
+        box-shadow: 0px 1px 10px rgba(179, 95, 95, 0.3);
+      }
+      .title {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+      }
+      .title-dis {
+        text-align: right;
+        margin-right: 20px;
+        font-size: 20px;
+      }
+      .box {
+        padding: 20px;
+        height: 400px;
+      }
+      .text {
+        float: left;
+        width: 75%;
+      }
+      .text-top {
+        font-size: 30px;
+        padding: 5px;
+        box-shadow: 0px 3px 3px 0px rgba(179, 95, 95, 0.3);
+        /* background-color: rgb(78, 120, 208); */
+      }
+      .text-bottom {
+        margin-top: 15px;
+        font-size: 20px;
+        background-color: beige;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      .image {
+        float: right;
+        width: 25%;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="Entire">
-        <div class="T">
-            <div class="title">
-                <p>내돈내산</p>
-            </div>
-            <div class="titleDiscription">
-                <p>직접 사용해본 무선충전보조배터리, 모니터암, 태블릿거치대의 짧은 후기</p>
-            </div>
+  <body>
+    <div class="entire">
+      <header>
+        <div class="title">
+          <p>내 돈 내 산</p>
         </div>
-        <div class="photo">
-            <img src="battery.jpg" class="battery-img">
-            <img src="arm.jpg" class="arm-img">
-            <img src="tablet.jpg" class="tablet-img">
+        <div class="title-dis">
+          <p>직접 사용한 짧은 후기</p>
         </div>
-        <hr>
-        <div class="body3">
-            <div class="title3">
-                <h3>무선충전보조배터리</h3>
-            </div>
-            <hr />
-            <div class="content3">
-                <p>
-                    뺐다 넣었다 안해도 되는 아무 
-                </p>
-            </div>
-        </div>
+      </header>
+      <main>
+        <div class="box">
+          <div class="text">
+            <div class="text-top">무선충전보조배터리</div>
 
+            <div class="text-bottom">무선 충전용으로 사용</div>
+          </div>
+          <div class="image">
+            <img src="battery.jpg" alt="" width="300px" height="300px" />
+          </div>
+        </div>
+        <div class="box">
+          <div class="text">
+            <div class="text-top">무선충전보조배터리</div>
+
+            <div class="text-bottom">무선 충전용으로 사용</div>
+          </div>
+          <div class="image">
+            <img src="arm.jpg" alt="" width="300px" height="300px" />
+          </div>
+        </div>
+        <div class="box">
+          <div class="text">
+            <div class="text-top">무선충전보조배터리</div>
+
+            <div class="text-bottom">무선 충전용으로 사용</div>
+          </div>
+          <div class="image">
+            <img src="tablet.jpg" alt="" width="300px" height="300px" />
+          </div>
+        </div>
+      </main>
+      <footer></footer>
     </div>
-</body>
-
+  </body>
 </html>
