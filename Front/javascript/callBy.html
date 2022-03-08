@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num = 10;
+      console.log(num);
+      function changeNum(num) {
+        num = 20;
+      }
+      changeNum(num);
+      console.log(num);
+
+      var str = "ssafy";
+      console.log(str);
+      function changeStr(str) {
+        str = "hello";
+      }
+      changeStr(str);
+      console.log(str);
+
+      //obj
+      var car = {
+        name: "현대",
+      };
+      console.log(car);
+      function changeName(obj) {
+        obj.name = "기아";
+      }
+      changeName(car);
+      console.log(car);
+    </script>
+  </body>
+</html>

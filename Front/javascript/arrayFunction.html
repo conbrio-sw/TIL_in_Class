@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   const players = ["손흥민", "이강인", "이승우", "김민재"];
+      //   var print = function (player) {
+      //     console.log(player);
+      //   };
+      //   //foreach
+      //   players.forEach(print);
+      //   console.warn("");
+      //   //foreach / index
+      //   players.forEach((player, index) => {
+      //     if (index != 3) {
+      //       console.log(player);
+      //     }
+      //   });
+      //   console.warn("");
+      //map != Map
+      //map return new array
+      // const lastNames = players.map((player) => player.charAt(0));
+      // lastNames.forEach((ln) => console.log(ln));
+
+      // players.map((player) => player.charAt(0)).forEach((ln) => console.log(ln));
+      // const words = ["aaa", "bbb", "ccc", "ddddd", "ee", "ffffff"];
+      // const result = words.filter((word) => word.length >= 4);
+      // console.log(result);
+
+      //   const players = ["손흥민", "이강인", "이승우", "김민재"];
+      //   //concat
+      //   // return new array
+      //   const players2 = ["차범근", "박지성", "안정환"];
+      //   const players3 = players.concat(players2);
+      // //   console.log(players3);
+
+      //slice
+      //return new array
+      //   const nums = [1, 2, 3, 4, 5];
+      //   console.log(nums.slice(2, 3));
+
+      //   //join
+      //   //return new array
+      //   console.log(nums.join("  ")); // default comma
+
+      //reverse
+      //원본이 변경된다
+      //   const nums2 = nums.reverse();
+      //   console.log(nums2);
+      //   console.log(nums);
+
+      //   console.warn("");
+      //   const str = "Hello";
+      //   console.log(str.split("").reverse().join(""));
+
+      //reduce
+      //배열에서 어떤 계산된 값을 얻고자 할 때
+      const nums = [3, 2, 7, 4, 9, 6];
+
+      //sum
+      let sum = nums.reduce((acc, cur) => (acc += cur));
+      console.log(sum);
+      //min
+      let min = nums.reduce((acc, cur) => (acc = acc <= cur ? acc : cur));
+      console.log(min);
+      let max = nums.reduce((acc, cur) => (acc = acc >= cur ? acc : cur));
+      console.log(max);
+    </script>
+  </body>
+</html>

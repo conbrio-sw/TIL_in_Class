@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   // 일반
+      //   function print(a) {
+      //     console.log(a);
+      //   }
+      //   print(0);
+      //   print("normal");
+      // arrow
+      //   var print = (a) => console.log(a);
+      //   print(1);
+      //   print("arrow 1");
+
+      //   var print = (a, b) => console.log(a, b);
+      //   print(2, 8);
+      //   print("arrow 2");
+
+      // var print = () => {
+      //   console.log("arrow3");
+      //   console.log("arrow3");
+      // };
+      // print();
+
+      // const add = (a, b) => a + b;
+      // console.log(add(2, 4));
+
+      // 주의 !! this
+      // arrow function <=  functional programming != OOP 와는 거리가 멀다.
+      // object this keyword 주의
+      const obj = {
+        num: 5,
+        // print: function () {
+        //   console.log(this.num);
+        // },
+        print: () => {
+          console.log(this.num);
+          console.log(this);
+        },
+      };
+      //console.log(obj.num);
+      obj.print();
+    </script>
+  </body>
+</html>
