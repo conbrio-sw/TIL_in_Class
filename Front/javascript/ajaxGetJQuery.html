@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <title>ajax jquery</title>
+    <style>
+      span {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h3>받은 데이터</h3>
+      <div id="receivedData"></div>
+    </div>
+    <hr />
+    <button id="btnGet">가져오기</button>
+    <script>
+      $("document").ready(function () {
+        $("#btnGet").click(function () {
+          getJson();
+        });
+      });
+      function getJson() {
+        //http://localhost:8080/WebBasic/SimpleJsonListServlet
+        $.ajax({
+          type: "get",
+          dataType: "json",
+          url: "http://localhost:8080/WebBasic/SimpleJsonListServlet",
+          success: function (data, status, xhr) {
+            console.log(data);
+            let userList = data;
+            let userHtml = ``;
+            userList.forEach((user) => {
+              userHtml += `<div>
+              <span>${user.userSeq}</span>
+              <span>${user.userName}</span>
+              <span>${user.userEmail}</span>
+              </div>`;
+            });
+            $("#receivedData").html(userHtml);
+          },
+          error: function (jqXHR, textStatus, error) {
+            alert(jqXHR.status);
+          },
+        });
+      }
+
+      function log() {
+        console.log(
+          `httpRequest onreadystatechange function called ${httpRequest.readyState}  ${httpRequest.status}`
+        );
+      }
+
+      function ajaxCallback() {
+        if (httpRequest.readyState == XMLHttpRequest.DONE) {
+          if (httpRequest.status == 200) {
+            // #1 받은 데이터 그대로 보여주기
+            // json 을 javascript Array 로 변경 필요
+            console.log(httpRequest.responseText); // json 자체 문자열
+            document.getElementById("receivedData").innerHTML = httpRequest.responseText;
+
+            // #2 parse to Javascript Array
+            // let userList = JSON.parse(httpRequest.responseText); // 명시적으로 parse()
+            // let userHtml = "";
+            // userList.forEach((user) => {
+            //   userHtml += `<div><span>${user.userSeq}</span><span>${user.userName}</span><span>${user.userEmail}</span></div>`;
+            // });
+            // document.getElementById("receivedData").innerHTML = userHtml;
+          } else {
+            alert("문제가 발생했습니다.");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

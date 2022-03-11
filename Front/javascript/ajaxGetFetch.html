@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <title>ajax Fetch</title>
+    <style>
+      span {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h3>받은 데이터</h3>
+      <div id="receivedData"></div>
+    </div>
+    <hr />
+    <button id="btnGet">가져오기</button>
+    <script>
+      window.onload = function () {
+        let btnGet = document.querySelector("#btnGet");
+        btnGet.onclick = function () {
+          getJson2();
+        };
+      };
+      // Promise
+      function getJson() {
+        //http://localhost:8080/WebBasic/SimpleJsonListServlet
+        fetch("http://localhost:8080/WebBasic/SimpleJsonListServlet?userId=ssafy&msg=안녕하세요?")
+          .then((response) => response.json())
+          .then((json) => {
+            let userHtml = "";
+            json.forEach((user) => {
+              userHtml += `<div><span>${user.userSeq}</span><span>${user.userName}</span><span>${user.userEmail}</span></div>`;
+            });
+            document.querySelector("#receivedData").innerHTML = userHtml;
+          });
+      }
+      // async await
+      async function getJson2() {
+        let url = new URL("http://localhost:8080/WebBasic/SimpleJsonListServlet");
+        url.searchParams.append("userId", "ssafy");
+        url.searchParams.append("msg", "안녕하세요?");
+        let response = await fetch(url); // async
+        let json = await response.json();
+        let userHtml = "";
+        json.forEach((user) => {
+          userHtml += `<div><span>${user.userSeq}</span><span>${user.userName}</span><span>${user.userEmail}</span></div>`;
+        });
+        document.querySelector("#receivedData").innerHTML = userHtml;
+      }
+    </script>
+  </body>
+</html>

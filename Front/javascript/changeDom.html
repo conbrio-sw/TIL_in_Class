@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 600px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid lightseagreen;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 10px;
+      }
+
+      table {
+        width: 100%;
+      }
+      .price {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="wrapper">
+        <h4>아래의 가격표를 확인해 주세요.</h4>
+        <table>
+          <tbody id="tbody">
+            <tr>
+              <th>번호</th>
+              <th>이름</th>
+              <th>가격</th>
+            </tr>
+            <tr class="sale">
+              <td>1</td>
+              <td>족발</td>
+              <td class="price soldout" data-price="10000" discount="1000">10000</td>
+            </tr>
+            <tr class="sale">
+              <td>2</td>
+              <td>회</td>
+              <td class="price soldout" data-price="20000" discount="5000">20000</td>
+            </tr>
+            <tr id="hobulho">
+              <td>3</td>
+              <td>홍어</td>
+              <td class="price" data-price="30000" discount="10000">30000</td>
+            </tr>
+            <tr>
+              <td colspan="3" id="boina">
+                <span style="display: none">보이나?</span><span>맛있게 드세요.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <button type="button" id="btnChangeDom" style="padding: 3px; margin-top: 10px">
+      Change Dom
+    </button>
+    <script>
+      window.onload = function () {
+        document.querySelector("#btnChangeDom").onclick = function () {
+          changeDom();
+        };
+      };
+      function changeDom() {
+        //innnerText
+        document.querySelector("h4").innerText = "가격표가 바뀌었습니다.";
+        //innerHTMl
+        var hobulho = document.querySelector("#hobulho");
+        hobulho.innerHTML = `<td>3</td><td>과메기</td><td class="price" data-price="25000" discount="20000">20000</td>`;
+        var hobulhoPrice = document.querySelector("#hobulho .price");
+        hobulhoPrice.innerHTML = `<strong>35000</strong>`;
+
+        // textContent
+        var boina = document.querySelector("#boina");
+        console.log(boina.innerText);
+        console.log(boina.textContent);
+        //style
+        var price = document.querySelectorAll(".price");
+        price.forEach((e1) => (e1.style.color = "red"));
+        price.forEach((e1) => {
+          let price = e1.getAttribute("data-price");
+          let discount = e1.getAttribute("discount");
+          e1.innerText = parseInt(price) - parseInt(discount);
+        });
+        // closest()
+        document
+          .querySelectorAll(".price.soldout")
+          .forEach((e1) => (e1.closest("tr").style.opacity = "0.5"));
+        var lastTr = document.querySelector("#tbody tr:last-child");
+        console.log(lastTr);
+        lastTr.remove();
+
+        //append, prepend, insertBefore
+        var tbody = document.querySelector("#tbody");
+
+        //append
+        var tr = document.createElement("tr");
+        tr.innerHTML = `<tr class="sale">
+                    <td>4</td><td>삼겹살</td><td class="price" data-price="25000" discount="100">25000</td>
+                </tr>`;
+        tbody.append(tr);
+
+        //prepend
+        var tr = document.createElement("tr");
+        tr.innerHTML = `<tr class="sale">
+                    <td>0</td><td>순대국</td><td class="price" data-price="5000" discount="1000">5000</td>
+                </tr>`;
+        //tbody.prepend(tr);
+        var firstTdRow = document.querySelector("#tbody tr:nth-child(2)");
+        tbody.insertBefore(tr, firstTdRow);
+      }
+    </script>
+  </body>
+</html>
