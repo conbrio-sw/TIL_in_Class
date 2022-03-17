@@ -25,3 +25,8 @@ group by department_id, job_id;
 select department_id, avg(salary) from employees
 group by department_id
 having avg(salary) > 5000;
+
+-- window function
+-- over partition by
+select employee_id, department_id,avg(salary) over (partition by department_id)
+from employees;
