@@ -1,0 +1,12 @@
+INSERT INTO nodejs.users (name, age, married, comment) VALUES ('beom', 23, 0, '안녕하세용');
+INSERT INTO nodejs.comments (commenter, comment) VALUES (1, '안녕하세요~ 저는 beom 입니다.');
+
+SELECT name, age FROM nodejs.users;
+SELECT name, age FROM nodejs.users WHERE age > 24 AND married = 0;
+SELECT name, age FROM nodejs.users ORDER BY age DESC;
+
+
+UPDATE nodejs.users SET age = 30 WHERE id = 2;
+UPDATE nodejs.users SET age = 31, name = 'seeok' WHERE id = 2 AND age = 30;
+
+DELETE FROM nodejs.users WHERE id = 2;
