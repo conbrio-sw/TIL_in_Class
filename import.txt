@@ -1,0 +1,4 @@
+<!-- New for FileUpload, CKEditor -->
+	<link rel="stylesheet" href="<%= contextPath %>/css/common.css">
+	<script src="https://cdn.ckeditor.com/ckeditor5/19.0.0/classic/ckeditor.js"></script>
+	<!-- / New for FileUpload, CKEditor -->
