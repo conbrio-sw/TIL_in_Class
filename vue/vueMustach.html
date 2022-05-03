@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{text}} <br />
+      {{text2sclice}} <br />
+      {{text2sclice}} <br />
+      {{text2sclice}} <br />
+      {{text2sclice}} <br />
+      {{text2sclice}} <br />
+      {{text3 == 'A' ? 'A입니다' : 'A가 아닙니다'}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const vue = new Vue({
+        data() {
+          return {
+            text: "Hello, world",
+            text2: "ssafy vue!! binding",
+            text3: "A",
+          };
+        },
+        computed: {
+          // getter
+          text2sclice: function () {
+            console.log("11");
+            return this.text2.slice(0, 4); // cach 변동이 생기기 전까지 계속 유지
+          },
+        },
+      });
+      vue.$mount("#app");
+    </script>
+  </body>
+</html>
