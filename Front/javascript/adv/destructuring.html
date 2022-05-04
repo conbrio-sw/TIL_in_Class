@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      {
+        let numbers = [1, 2, 3, 4];
+        let a = numbers[0];
+        let b = numbers[1];
+        let c = numbers[2];
+        let d = numbers[3];
+
+        console.log(c);
+      }
+      console.warn("===========================");
+      {
+        let numbers = [1, 2, 3, 4];
+        let a, b, c, d;
+        [a, b, c, d] = numbers;
+        console.log(c);
+      }
+      console.warn("===========================");
+      {
+        let numbers = [1, 2, 3, 4];
+        let [a, b, c, d] = numbers;
+        console.log(c);
+      }
+      console.warn("===========================");
+      {
+        let numbers = [1, 2, 3, 4, 5, 6];
+        let [a, b, ...c] = numbers;
+        console.log(a, b, c);
+      }
+      console.warn("===========================");
+      {
+        let text = "hello, world!";
+
+        let [a, b, , , x, ...c] = text;
+        console.log(a, b, x, c);
+      }
+      console.warn("===========================");
+      {
+        let [a = 3, b = 4, c] = [1, 2, 3, 4, 5];
+        console.log(a, b, c);
+      }
+      console.warn("===========================");
+      {
+        let a = "hello";
+        let b = "world";
+        console.log(a, b);
+        [a, b] = [b, a];
+        console.log(a, b);
+      }
+      console.warn("===========================");
+      {
+        let obj = { name: "홍길동", age: 20, phone: "010-0000-0000" };
+        let { name, phone } = obj;
+        console.log(name, phone);
+      }
+      console.warn("===========================");
+      console.warn("===========================");
+      getJson();
+
+      async function getJson() {
+        // let response = await fetch("./fetchResult.json");
+        // let data = await response.json();
+        // console.log(data);
+        // let { members } = data;
+        // console.log(members);
+
+        let response = await fetch("./fetchResult.json");
+        let { members } = await response.json();
+
+        console.log(members);
+      }
+    </script>
+  </body>
+</html>

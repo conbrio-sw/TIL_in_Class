@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h4>Click</h4>
+      <button v-on:click="count++">count++ Click</button>
+      <p>Click Count : {{count}}</p>
+      <button @click="changeHello()">helloMessage Click</button>
+      <p>helloMessage : {{helloMessage}}</p>
+      <button @mouseover="aaa()">alert</button> <br />
+      <br />
+
+      <button @click="calcCount()">countMessage click</button>
+      <p>count Message : {{countMessage}}</p>
+
+      <h4>Mouseover</h4>
+      <div @mouseover="mouseMessage='마우스오버'" @mouseout="mouseMessage='마우스아웃'">
+        {{mouseMessage}}
+      </div>
+      <h4>key</h4>
+      <input v-on:keyup="showKey" type="text" />
+      <input v-on:keydown.13="enterKey" type="text" id="entt" />
+      <br />
+      <input v-on:keydown="multiKey" type="text" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const vue = new Vue({
+        data() {
+          return {
+            count: 0,
+            helloMessage: "hi",
+            countMessage: 0 + " 번 클릭햇습니다.",
+            mouseMessage: "마우스를 올려보세요",
+          };
+        },
+        methods: {
+          changeHello: function () {
+            this.helloMessage = this.helloMessage == "hi" ? "안녕하세요" : "hi";
+          },
+          aaa: function () {
+            alert("zz");
+          },
+          calcCount: function () {
+            this.countMessage = this.count + " 번 클릭했습니다.";
+          },
+          showKey(e) {
+            console.log(e.key + " " + e.keyCode);
+          },
+          enterKey() {
+            console.log(document.querySelector("#entt").value);
+          },
+          multiKey(e) {
+            console.log(e.key + " " + e.keyCode);
+            e.preventDefault();
+            if (e.keyCode == 46 && e.ctrlKey && e.shiftKey) {
+              alert("control shift delete");
+            } else if (e.keyCode == 86 && e.ctrlKey) {
+              alert("붙여넣기  완료");
+            } else if (e.keyCode == 46 && e.shiftKey) {
+              alert("완전삭제 완료");
+            } else if (e.keyCode == 116 && e.altKey) {
+              alert("alt + f5");
+            }
+          },
+        },
+      });
+      vue.$mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <form target="_blank" action="http://www.naver.com">
+        <button type="submit" @click="callSubmit">전송</button>
+        <input type="text" v-model="inputText1" id="" />
+      </form>
+      <hr />
+      <form @submit.prevent="callSubmit2" target="_blank" action="http://www.naver.com" id="form1">
+        <button type="submit">전송</button>
+        <input type="text" v-model="inputText2" id="" />
+      </form>
+
+      <form @submit.prevent="callSubmit3" id="form2">
+        <button type="submit">전송</button>
+        <input type="text" v-model="inputText3" id="" />
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        data() {
+          return {
+            inputText1: "",
+            inputText2: "",
+            inputText3: "",
+          };
+        },
+        methods: {
+          callSubmit(e) {
+            console.log("callSubmit");
+            if (this.inputText1 == "") {
+              e.preventDefault();
+              //e.stopPropagation();
+            }
+          },
+          callSubmit2(e) {
+            console.log("callSubmit2");
+            if (this.inputText2 == "naver") {
+              document.querySelector("#form1").submit();
+            }
+          },
+          callSubmit3(e) {
+            console.log("callSubmit3");
+            if (this.inputText3 != "") {
+              let form2 = document.querySelector("#form2");
+              form2.target = "__blank";
+              form2.action = "http://www.naver.com ";
+              form2.submit();
+            }
+          },
+        },
+      }).$mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      class MyClass {
+        // constructor(id, name, email) {
+        //   this.id = id;
+        //   this.name = name;
+        //   this.email = email;
+        // }
+        constructor(obj) {
+          this.id = obj.id;
+          this.name = obj.name;
+          this.email = obj.email;
+          this.phone = obj.phone;
+        }
+        aboutMe() {
+          let message = this.id + " " + this.name + " " + this.email + " " + this.phone;
+          console.log(message);
+          if (this.ui == undefined) {
+            console.log("ui is undefinded");
+          } else {
+            this.ui.innerText = message;
+          }
+        }
+        mount(ui) {
+          this.ui = document.querySelector(ui);
+          return this;
+        }
+      }
+      //   let obj = {
+      //     id: "qwer",
+      //     name: "큐떠블유이알",
+      //     email: "qwer@naver.com",
+      //     phone: "010-2222-2222",
+      //   };
+      let myClass = new MyClass({
+        id: "qwer",
+        name: "큐떠블유이알",
+        email: "qwer@naver.com",
+        phone: "010-2222-2222",
+      });
+      myClass.aboutMe();
+
+      new MyClass({
+        id: "qwer",
+        name: "큐떠블유이알",
+        email: "qwer@naver.com",
+        phone: "010-2222-2222",
+      })
+        .mount("#app")
+        .aboutMe();
+    </script>
+  </body>
+</html>

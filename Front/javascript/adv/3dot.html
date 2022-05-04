@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /// Rest Operator
+      {
+        let obj = { a: 1, b: 2, c: 3 };
+        let obj2 = obj; // 동일 객체를 reference
+        console.log(obj2);
+        obj.b = 4;
+        console.log(obj2);
+      }
+      console.warn("============================");
+      {
+        let obj = { a: 1, b: 2, c: 3 };
+        let { ...obj2 } = obj; // 객체를 복사
+        console.log(obj2);
+        obj.b = 4;
+        console.log(obj2);
+      }
+      console.warn("============================");
+      {
+        let obj = { a: 1, b: 2, c: 3, d: "4" };
+        let bb = obj.b;
+        let { x, y, ...obj2 } = obj; // 객체의 프로퍼티 명을 일치시켜야함
+        console.log(x, y, obj2);
+      }
+      console.warn("============================");
+      {
+        let arr = ["a", "b", "c", "d", "e"];
+        let [a, c, ...arr2] = arr;
+        console.log(a, c, arr2);
+      }
+      console.error("==============================");
+      // Spread Operator
+
+      //object
+      {
+        let s1 = {
+          name: "홍길동",
+          phone: "010-1111-1111",
+          age: 30,
+        };
+        let s2 = {
+          phone: "010-2222-2222",
+          age: 20,
+        };
+        let s3 = {
+          age: 40,
+        };
+        let s4 = { ...s1 }; // 복사
+        let s5 = { ...s1, ...s3 }; // 합치기 - 동일한 속성이 있으면 뒤에 것이 덮어쓴다.
+        let s6 = { name: "박길동", ...s3 };
+        let s7 = { ...s1, ...s2, ...s3 };
+        console.log(s4);
+        console.log(s5);
+        console.log(s6);
+        console.log(s7);
+      }
+      console.warn("=======================");
+      {
+        let nums = [1, 2, 3, 4, 5];
+        let nums2 = [3, 4, 5, 6, 7];
+        let nums3 = [...nums, ...nums2];
+        console.log(nums3);
+      }
+    </script>
+  </body>
+</html>
