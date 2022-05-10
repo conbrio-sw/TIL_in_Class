@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <product-list :discount-rate="discountRateValue" @call-parent="fromChild"></product-list>
+      <hr />
+      <h4>Cart</h4>
+      <table>
+        <thead>
+          <th>제품</th>
+          <th>가격</th>
+          <th>할인가격</th>
+        </thead>
+        <tr v-for="(product, index) in cart" :key="index">
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.price*(1-discountRateValue)}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <template id="product-list">
+      <table>
+        <thead>
+          <th>제품</th>
+          <th>가격</th>
+          <th>할인가격</th>
+          <th>버튼</th>
+        </thead>
+        <tr v-for="(product, index) in productList" :key="index">
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.price*(1-discountRate)}}</td>
+          <td><button @click="addCart(product)">Add Cart</button></td>
+        </tr>
+      </table>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      let productList = [
+        { name: "Tent", price: 40000 },
+        { name: "Tarp", price: 60000 },
+        { name: "Table", price: 50000 },
+      ];
+      Vue.component("product-list", {
+        template: "#product-list",
+        props: ["discount-rate"],
+        data() {
+          return {
+            productList: productList,
+          };
+        },
+        methods: {
+          addCart: function (product) {
+            this.$emit("call-parent", product);
+          },
+        },
+      });
+
+      const vue = new Vue({
+        data() {
+          return {
+            discountRateValue: 0.2,
+            cart: [],
+          };
+        },
+        methods: {
+          fromChild: function (product) {
+            this.cart.push(product);
+          },
+        },
+      });
+      vue.$mount("#app");
+      //alert(aaa());
+    </script>
+  </body>
+</html>
