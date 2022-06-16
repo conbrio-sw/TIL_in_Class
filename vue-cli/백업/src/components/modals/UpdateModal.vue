@@ -15,7 +15,7 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="titleUpdate" class="form-label">제목</label>
-            <input type="text" class="form-control" v-model="title" />
+            <input type="text" class="form-control" v-model="board.title" />
           </div>
           <div class="mb-3">
             <!-- New for FileUpload, CKEditor -->
@@ -94,8 +94,6 @@ export default {
   props: ["board"],
   data() {
     return {
-      boardId: "",
-      title: "",
       CKEditor: "",
       tempCKEditor: "",
       attachFile: false,
@@ -115,35 +113,28 @@ export default {
     }
 
     //열렸을 때 이벤트 등록
+    let $this = this;
+    this.$el.addEventListener("show.bs.modal", function () {
+      $this.initUI();
+    });
   }, //end mounted
   updated() {
     //CKEditor가 빈칸이고 모달이 열렸을 때 CKEditor의 값을 초기화
-  },
-  watch: {
-    board: function () {
-      console.log("update watch!!");
-      // props --> data
-      this.boardId = this.board.boardId;
-      this.title = this.board.title;
+    if (!this.isUpdated && this.CKEditor.getData() == "") {
       this.CKEditor.setData(this.board.content);
-
-      // 첨부 파일 관련 초기화
-      // 수정 또는 수정 전 첨부 파일을 선택하면 그대로 남아 있다.
+      this.isUpdated = true;
+    }
+  },
+  methods: {
+    initUI: function () {
       this.attachFile = false;
       this.fileList = [];
       document.querySelector("#inputFileUploadUpdate").value = "";
+      //isUpdated를 초기화
+      this.isUpdated = false;
+      //isUpdated가 초기화 되고 CKEditor를 빈칸으로 만들면서 updated호출됨
+      this.CKEditor.setData("");
     },
-  },
-  methods: {
-    // initUI: function () {
-    //   this.attachFile = false;
-    //   this.fileList = [];
-    //   document.querySelector("#inputFileUploadUpdate").value = "";
-    //   //isUpdated를 초기화
-    //   this.isUpdated = false;
-    //   //isUpdated가 초기화 되고 CKEditor를 빈칸으로 만들면서 updated호출됨
-    //   this.CKEditor.setData("");
-    // },
     changeFile: function (fileEvent) {
       this.fileList = [];
 
@@ -154,13 +145,12 @@ export default {
     },
     boardUpdate: async function () {
       let formData = new FormData();
-      formData.append("title", this.title);
-      formData.append("baordId", this.boardId);
+      formData.append("title", this.board.title);
+      formData.append("baordId", this.board.boardId);
       formData.append("content", this.CKEditor.getData());
 
-      let attachFiles = document.querySelector("#inputFileUploadUpdate").files;
+      let attachFiles = document.querySelector("#inputFileUploadInsert").files;
       if (attachFiles.length > 0) {
-        console.log("파일이 1개이상");
         const fileArray = Array.from(attachFiles);
         fileArray.forEach((file) => formData.append("file", file));
       }
@@ -171,7 +161,7 @@ export default {
 
       try {
         let response = await http.post(
-          "/boards/" + this.boardId,
+          "/boards/" + this.board.boardId,
           formData,
           options
         );

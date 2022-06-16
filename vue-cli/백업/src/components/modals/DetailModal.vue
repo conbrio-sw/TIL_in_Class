@@ -65,28 +65,26 @@
               </tbody>
             </table>
           </div>
-          <div class="modal-footer">
-            <button
-              v-show="board.sameUser"
-              @click="changeToUpdate"
-              id="btnBoardUpdateForm"
-              class="btn btn-sm btn-primary btn-outline"
-              data-bs-dismiss="modal"
-              type="button"
-            >
-              글 수정하기
-            </button>
-            <button
-              v-show="board.sameUser"
-              @click="changeToDelete"
-              id="btnBoardDeleteConfirm"
-              class="btn btn-sm btn-warning btn-outline"
-              data-bs-dismiss="modal"
-              type="button"
-            >
-              글 삭제하기
-            </button>
-          </div>
+          <button
+            v-show="board.sameUser"
+            @click="changeToUpdate"
+            id="btnBoardUpdateForm"
+            class="btn btn-sm btn-primary btn-outline"
+            data-bs-dismiss="modal"
+            type="button"
+          >
+            글 수정하기
+          </button>
+          <button
+            v-show="board.sameUser"
+            @click="changeToDelete"
+            id="btnBoardDeleteConfirm"
+            class="btn btn-sm btn-warning btn-outline"
+            data-bs-dismiss="modal"
+            type="button"
+          >
+            글 삭제하기
+          </button>
         </div>
       </div>
     </div>
@@ -95,6 +93,7 @@
 </template>
 
 <script>
+import http from "@/common/axios.js";
 import Vue from "vue";
 import VueAlertify from "vue-alertify";
 Vue.use(VueAlertify);
@@ -104,7 +103,20 @@ export default {
     changeToUpdate() {
       this.$emit("call-parent-change-to-update");
     },
-    changeToDelete() {
+    async changeToDelete() {
+      console.log(this.board.boardId);
+      try {
+        let response = await http.delete("/boards/" + this.board.boardId); // params: params : shorthand property
+        let { data } = response;
+        console.log(data);
+        if (data.result == "login") {
+          this.$router.push("/login");
+        } else {
+          this.$alertify.success("글이 삭제되었습니다.");
+        }
+      } catch (error) {
+        console.error(error);
+      }
       this.$emit("call-parent-change-to-delete");
     },
   },

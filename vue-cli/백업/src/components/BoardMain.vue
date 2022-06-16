@@ -158,63 +158,29 @@ export default {
         if (data.result == "login") {
           this.$router.push("/login");
         } else {
-          // let { dto } = data;
-          // this.board.boardId = dto.boardId;
-          // this.board.title = dto.title;
-          // this.board.content = dto.content;
-          // this.board.userName = dto.userName;
-          // let { regDt } = dto;
-          // this.board.regDate = util.makeDateStr(
-          //   regDt.date.year,
-          //   regDt.date.month,
-          //   regDt.date.day,
-          //   "."
-          // );
-          // this.board.regTime = util.makeTimeStr(
-          //   regDt.time.hour,
-          //   regDt.time.minute,
-          //   regDt.time.second,
-          //   ":"
-          // );
-          // this.board.readCount = dto.readCount;
-          // this.board.fileList = dto.fileList;
-          // this.board.sameUser = dto.sameUser;
-          let { regDt } = data.dto; // destructuring
-          let boardNew = {
-            regDate: util.makeDateStr(
-              regDt.date.year,
-              regDt.date.month,
-              regDt.date.day,
-              "."
-            ),
-            regTime: util.makeTimeStr(
-              regDt.time.hour,
-              regDt.time.minute,
-              regDt.time.second,
-              ":"
-            ),
-            ...data.dto,
-          }; // 3dot spread operator
-
-          this.board = boardNew; // watch 호출!!
+          let { dto } = data;
+          this.board.boardId = dto.boardId;
+          this.board.title = dto.title;
+          this.board.content = dto.content;
+          this.board.userName = dto.userName;
+          let { regDt } = dto;
+          this.board.regDate = util.makeDateStr(
+            regDt.date.year,
+            regDt.date.month,
+            regDt.date.day,
+            "."
+          );
+          this.board.regTime = util.makeTimeStr(
+            regDt.time.hour,
+            regDt.time.minute,
+            regDt.time.second,
+            ":"
+          );
+          this.board.readCount = dto.readCount;
+          this.board.fileList = dto.fileList;
+          this.board.sameUser = dto.sameUser;
 
           this.detailModal.show();
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    async boardDelete() {
-      try {
-        let response = await http.delete("/boards/" + this.board.boardId); // params: params : shorthand property
-        let { data } = response;
-        console.log(data);
-
-        if (data.result == "login") {
-          this.$router.push("/login");
-        } else {
-          this.$alertify.success("글이 삭제되었습니다.");
-          this.boardList();
         }
       } catch (error) {
         console.error(error);
@@ -225,19 +191,7 @@ export default {
       this.updateModal.show();
     },
     changeToDelete() {
-      this.detailModal.hide();
-      var $this = this; // alertify.confirm-function()에서 this 는 alertify 객체
-      this.$alertify.confirmWithTitle(
-        //'삭제 확인', '이 글을 삭제하시겠습니까?', <- ???? title 추가하면 cancel이 ok 처럼 동작
-        "삭제확인",
-        "이 글을 삭제하시겠습니까?",
-        function () {
-          $this.boardDelete(); // $this 사용
-        },
-        function () {
-          console.log("cancel");
-        }
-      );
+      console.log("??");
       this.boardList();
     },
   },
